@@ -1,1 +1,43 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guesser</title>
+    <script>
+    function myFunction(){
+        let n=Math.random();
+        n=Math.floor(100*n +1);
+        let x=prompt("Enter a number between 1-100");
+        let deviation=Math.abs(x-n);
+        let attemptNo=1;
+        while(attemptNo<=5){
+            if(x==n){
+                alert("You have successfully guessed the number");
+                break;
+            }
+            if(deviation>50){
+                x=prompt("Deviation is very high. Enter a new number.");
+            }
+            else if(deviation>32){
+                x=prompt("Deviation is high. Enter a new number.")
+            }
+            else if(deviation>16){
+                x=prompt("Deviation is low. Enter a new number");
+            }
+            else{
+                x=prompt("Deviation is very low. Enter a new number");
+            }
+            deviation=Math.floor(x-n);
+            attemptNo++;
+        }
+        if(attemptNo==6){
+            alert("You have failed! The number was: "+n);
+        }
+    }
+    </script>
+</head>
+<body>
+    <button onclick=myFunction()>Run JS</button>
+</body>
+</html>
