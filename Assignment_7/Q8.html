@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort Array</title>
+</head>
+<body>
+  <h1>Sort Array</h1>
+  <textarea id="inputText" placeholder="Enter the array separated by commas"></textarea>
+  <button onclick="bubbleSort()">Sort</button>
+  <p id="output"></p>
+
+  <script>
+    function bubbleSort() {
+    const input = document.getElementById('inputText').value;
+    const arr=input.split(',').map(Number);
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+        if ((arr[j] > arr[j + 1])) {
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        }
+        }
+    }
+    document.getElementById('output').textContent = arr;
+    }
+  </script>
+</body>
+</html>

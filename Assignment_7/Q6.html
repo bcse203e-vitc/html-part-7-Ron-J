@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duplicates Finder</title>
+</head>
+<body>
+  <h1>Duplicates Finder</h1>
+  <textarea id="inputText" placeholder="Enter the array separated by commas"></textarea>
+  <button onclick="findDuplicate()">Find duplicates</button>
+  <p id="duplicates"></p>
+
+  <script>
+    function findDuplicate() {
+      const input = document.getElementById('inputText').value;
+      const array=input.split(',');
+      const duplicates=[];
+      for(let i=0;i<array.length;i++){
+        let count=0;
+        for(let j=i-1;j>=0;j--){
+            if(array[i]==array[j]){
+                count++;
+            }
+        }
+        if(count==1){
+            duplicates.push(array[i]);
+        }
+      }
+      document.getElementById('duplicates').textContent = duplicates;
+    }
+  </script>
+</body>
+</html>
